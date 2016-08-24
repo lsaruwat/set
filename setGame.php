@@ -3,10 +3,9 @@
 window.addEventListener("load",main);
 
 function main(){
-	let d = new Deck();
-	d.getNewDeck();
-	d.shuffleCards();
-	console.log(d.cards);
+	let set = new SetGame();
+	console.log(set.deck.cards);
+	set.populateDom();
 }
 
 
