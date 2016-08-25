@@ -117,8 +117,14 @@ class SetGame{
 		}
 		console.log(this.selected);
 		if(this.selected.length === 3 && this.isSet(this.selected[0],this.selected[1],this.selected[2])){
-			document.getElementById("messageArea").innerHTML = "Set Found!";
 			this.setsFound++;
+			document.getElementById("messageArea").innerHTML = "Set Found!";
+			document.getElementById("setsArea").innerHTML = "<h1>total sets: " + this.numSets + "</h1><h1>" + this.setsFound + "</h1>";
+			let selectCards = document.getElementsByClassName("selected");
+			for(let i=0; i<selectCards.length; i++){
+				selectCards[i].classList.remove("selected");
+			}
+
 			if(this.numSets <= this.setsFound){
 				location.reload();
 			}
@@ -173,7 +179,7 @@ class SetGame{
 				}
 			}
 		}
-		this.numSets /=6;
+		this.numSets /=6; // weird but do to out of order sets this needs to be done
 		if(this.numSets === 0)location.reload();
 		document.getElementById("setsArea").innerHTML = "<h1>" + this.numSets + "</h1>";
 	}
