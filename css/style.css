@@ -1,3 +1,6 @@
+body{
+	text-align: center;
+}
 .set-card{
 	border: solid 2px #333;
 	display: inline-block;
@@ -5,6 +8,7 @@
 	margin-left: 1%;
 	margin-bottom: 20px;
 	text-align: center;
+	height: 200px;
 }
 
 .set-card.selected{
@@ -17,6 +21,7 @@
 
 #river{
 	width: 50%;
+	display: inline-block;
 
 }
 
