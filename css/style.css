@@ -1,0 +1,28 @@
+.set-card{
+	border: solid 2px #333;
+	display: inline-block;
+	width: 30%;
+	margin-left: 1%;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.set-card.selected{
+	border: solid 4px purple;
+}
+
+.set-card p{
+	margin-top: 5px;
+}
+
+#river{
+	width: 50%;
+
+}
+
+.shape{
+	font-size: 50px;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0px auto;
+}

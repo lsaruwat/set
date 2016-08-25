@@ -7,18 +7,36 @@ class Card{
     this.fill = fill;
     this.count = count;
   }
+
 }
 
 class DomCard extends Card{
 
-	constructor(color,shape,fill,count){
-		super(color,shape,fill,count);
+	constructor(color,shape,fill,count,id){
+		super(color,shape,fill,count,id);
+		this.chosen = false;
 		this.element = document.createElement("div");
 		this.element.style.color = this.color;
-		this.element.style.border= "solid 2px black";
-		this.element.innerHTML = "<p>" + this.count + "</p>";
-		this.element.innerHTML += "<p>" + this.shape + "</p>";
-		this.element.innerHTML += "<p>" + this.fill + "</p>";
+		this.element.setAttribute("class","set-card");
+		for(let i=0; i<this.count; i++){
+			this.element.innerHTML += "<p class='shape' style='border: " + this.fill + " 2px black;'>&" + this.shape + ";</p>";
+		}
+		this.addEventListener("click",this.selected);
+	}
+
+	selected(){
+		if(this.chosen == false){
+			this.chosen=true;	
+			this.element.classList.add("selected");
+		}
+		else{
+			this.chosen = false;
+			this.element.classList.remove("selected");
+		}
+	}
+
+	addEventListener(domEvent, functionRef, bubbles=false){
+		this.element.addEventListener(domEvent, functionRef.bind(this), bubbles);
 	}
 }
 
@@ -26,9 +44,9 @@ class Deck{
 
 	constructor(){
 		this.cards = [];
-		this.shapes = ["diamond", "squiggle", "oval"];
+		this.shapes = ["diamond", "hearts", "spades"];
 		this.colors = ["red", "green", "blue"];
-		this.fills = ["none", "half", "full"];
+		this.fills = ["none", "dotted", "solid"];
 		this.counts = [1,2,3];
 		this.getNewDeck();
 		this.shuffleCards();
@@ -36,9 +54,16 @@ class Deck{
 	}
 
 	getNewDeck(){
+		let index = 0;
 		for(let i=0; i<3; i++){
-			for(let j=0; j<3;j++){	
-			this.cards.push( new DomCard(this.colors[i],this.shapes[j],this.fills[j],this.counts[j], (i+1)*(j+1) ) );
+			for(let j=0; j<3;j++){
+				for(let k=0; k<3; k++){
+					for(let l=0; l<3;l++){
+						this.cards.push( new DomCard(this.colors[i],this.shapes[j],this.fills[k],this.counts[l], index ) );
+						index++;
+					}
+
+				}	
 			}
 		}
 	}
@@ -61,6 +86,8 @@ class SetGame{
 	constructor(){
 		this.deck = new Deck();
 		this.river = [];
+		this.selected = [];
+		this.addEventListener("click",this.checkCards);
 	}
 
 	populateDom(){
@@ -68,7 +95,19 @@ class SetGame{
 			this.river.push(this.deck.cards.pop() );
 		}
 		for(let i=0; i<this.river.length; i++){
-			document.body.appendChild(this.river[i].element);
+			document.getElementById("river").appendChild(this.river[i].element);
 		}
+	}
+
+	checkCards(){
+		this.selected = [];
+		for(let i=0; i<this.river.length; i++){
+			if(this.river[i].chosen)this.selected.push(this.river[i]);
+		}
+		console.log(this.selected);
+	}
+
+	addEventListener(domEvent, functionRef, bubbles=false){
+		window.addEventListener(domEvent, functionRef.bind(this), bubbles);
 	}
 }
