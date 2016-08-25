@@ -51,7 +51,7 @@ class Deck{
 
 	constructor(){
 		this.cards = [];
-		this.shapes = ["diamond", "hearts", "spades"];
+		this.shapes = ["diams", "hearts", "spades"];
 		this.colors = ["red", "green", "blue"];
 		this.fills = ["none.jpg", "dotted.png", "stripes.gif"];
 		this.counts = [1,2,3];
@@ -120,10 +120,11 @@ class SetGame{
 			this.setsFound++;
 			document.getElementById("messageArea").innerHTML = "Set Found!";
 			document.getElementById("setsArea").innerHTML = "<h1>total sets: " + this.numSets + "</h1><h1>" + this.setsFound + "</h1>";
-			let selectCards = document.getElementsByClassName("selected");
-			for(let i=0; i<selectCards.length; i++){
-				selectCards[i].classList.remove("selected");
-			}
+
+			//let selectCards = document.getElementsByClassName("selected");
+			//for(let i=0; i<selectCards.length; i++){
+			//	selectCards[i].classList.remove("selected");
+			//}
 
 			if(this.numSets <= this.setsFound){
 				location.reload();
@@ -181,7 +182,7 @@ class SetGame{
 		}
 		this.numSets /=6; // weird but do to out of order sets this needs to be done
 		if(this.numSets === 0)location.reload();
-		document.getElementById("setsArea").innerHTML = "<h1>" + this.numSets + "</h1>";
+		document.getElementById("setsArea").innerHTML = "<h1>Total Sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
 	}
 
 
