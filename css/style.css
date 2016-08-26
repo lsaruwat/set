@@ -1,6 +1,10 @@
 body{
 	text-align: center;
 }
+
+svg{
+	fill: currentColor;
+}
 .set-card{
 	border: solid 2px #333;
 	display: inline-block;
