@@ -26,7 +26,7 @@ class DomCard extends Card{
 		this.element.setAttribute("class","set-card");
 		this.element.setAttribute("style", "background-image:url(img/" + this.fill + "); color: " + this.color + ";");
 		for(let i=0; i<this.count; i++){
-			this.element.innerHTML += "<img class='shape' src='img/>" + this.shape + "'</img>";
+			this.element.innerHTML += "<img class='shape' src='img/" + this.shape + "'></img>";
 		}
 		this.addEventListener("click",this.selected);
 	}
