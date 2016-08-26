@@ -12,7 +12,7 @@ body{
 }
 
 .set-card.selected{
-	border: solid 4px purple;
+	border: solid 3px #1E90FF;
 }
 
 .set-card p{
