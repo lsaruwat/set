@@ -52,7 +52,7 @@ class Deck{
 	constructor(){
 		this.cards = [];
 		this.shapes = ["diams", "hearts", "spades"];
-		this.colors = ["red", "green", "blue"];
+		this.colors = ["#F44336", "#4CAF50", "#673AB7"];
 		this.fills = ["none.jpg", "dotted.png", "stripes.gif"];
 		this.counts = [1,2,3];
 		this.getNewDeck();
