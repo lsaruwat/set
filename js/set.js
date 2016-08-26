@@ -26,7 +26,7 @@ class DomCard extends Card{
 		this.element.setAttribute("class","set-card");
 		this.element.setAttribute("style", "background-image:url(img/" + this.fill + "); color: " + this.color + ";");
 		for(let i=0; i<this.count; i++){
-			this.element.innerHTML += "<p class='shape' >&" + this.shape + ";</p>";
+			this.element.innerHTML += "<img class='shape' src='img/>" + this.shape + "'</img>";
 		}
 		this.addEventListener("click",this.selected);
 	}
@@ -51,7 +51,7 @@ class Deck{
 
 	constructor(){
 		this.cards = [];
-		this.shapes = ["diams", "hearts", "spades"];
+		this.shapes = ["bug.svg", "power.svg", "polymer.svg"];
 		this.colors = ["#F44336", "#4CAF50", "#673AB7"];
 		this.fills = ["none.jpg", "dotted.png", "stripes.gif"];
 		this.counts = [1,2,3];
