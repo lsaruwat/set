@@ -67,7 +67,7 @@ svg{
 	}
 }
 
-@media only screen and (max-width: 905px) {
+@media only screen and (max-width: 1000px) {
 	#river{
 		width: 100%;
 	}
