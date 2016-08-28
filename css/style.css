@@ -1,5 +1,6 @@
 body{
 	text-align: center;
+	margin: 0px;
 }
 
 svg{
@@ -8,7 +9,7 @@ svg{
 .set-card{
 	border: solid 2px #333;
 	display: inline-block;
-	width: 30%;
+	width: 31.5%;
 	margin-left: 1%;
 	margin-bottom: 20px;
 	text-align: center;
