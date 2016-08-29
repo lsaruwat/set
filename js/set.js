@@ -125,7 +125,7 @@ class SetGame{
 				this.setsFound++;
 				this.solvedSets.push( new Set(this.selected[0].id,this.selected[1].id,this.selected[2].id) );
 				document.getElementById("messageArea").innerHTML = "Set Found!";
-				document.getElementById("setsArea").innerHTML = "<h1>total sets: " + this.numSets + "</h1><h1>" + this.setsFound + "</h1>";
+				document.getElementById("setsArea").innerHTML = "<h1>total sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
 			}
 			else{
 				document.getElementById("messageArea").innerHTML = "Already Found that set!";

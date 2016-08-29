@@ -1,3 +1,4 @@
+<script src="https://use.fontawesome.com/3d6c940500.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <div id="river"></div>
