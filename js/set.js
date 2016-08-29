@@ -1,8 +1,12 @@
 class Set{
 	constructor(id1,id2,id3){
-		this.id1=id1;
-		this.id2=id2;
-		this.id3=id3;
+		this.idArr = [];
+		this.idArr.push(id1);
+		this.idArr.push(id2);
+		this.idArr.push(id3);
+		this.idArr.sort(function(a,b){
+			return a-b;
+		});
 	}
 }
 class Card{
@@ -94,8 +98,9 @@ class SetGame{
 		this.deck = new Deck();
 		this.river = [];
 		this.selected = [];
-		this.numSets = 0;
+		this.numSets = 0.0;
 		this.setsFound = 0;
+		this.solvedSets = [];
 		this.sets = [];
 		this.addEventListener("click",this.checkCards);
 	}
@@ -115,16 +120,16 @@ class SetGame{
 		for(let i=0; i<this.river.length; i++){
 			if(this.river[i].chosen && this.selected.length < 3)this.selected.push(this.river[i]);
 		}
-		console.log(this.selected);
 		if(this.selected.length === 3 && this.isSet(this.selected[0],this.selected[1],this.selected[2])){
-			this.setsFound++;
-			document.getElementById("messageArea").innerHTML = "Set Found!";
-			document.getElementById("setsArea").innerHTML = "<h1>total sets: " + this.numSets + "</h1><h1>" + this.setsFound + "</h1>";
-
-			//let selectCards = document.getElementsByClassName("selected");
-			//for(let i=0; i<selectCards.length; i++){
-			//	selectCards[i].classList.remove("selected");
-			//}
+			if(this.newSetFound(this.selected[0].id,this.selected[1].id,this.selected[2].id)){
+				this.setsFound++;
+				this.solvedSets.push( new Set(this.selected[0].id,this.selected[1].id,this.selected[2].id) );
+				document.getElementById("messageArea").innerHTML = "Set Found!";
+				document.getElementById("setsArea").innerHTML = "<h1>total sets: " + this.numSets + "</h1><h1>" + this.setsFound + "</h1>";
+			}
+			else{
+				document.getElementById("messageArea").innerHTML = "Already Found that set!";
+			}
 
 			if(this.numSets <= this.setsFound){
 				location.reload();
@@ -155,36 +160,29 @@ class SetGame{
 			for(let j=0; j<this.river.length; j++){
 				for(let k=0; k<this.river.length;k++){
 					if( i !== j && j !== k && this.isSet(this.river[i],this.river[j],this.river[k]) ){
-
-						// let tempSet = new Set(this.river[i].id,this.river[j].id,this.river[k].id);
-						// if(this.sets.length > 0){
-						// 	let exists = false;
-						// 	for(let l=0; l<this.sets.length; l++){
-						// 		if(tempSet != this.sets[l]){
-						// 			exists = true;
-						// 		}	
-						// 	}
-						// 	if(!exists){
-						// 		this.numSets++;
-						// 		this.sets.push(tempSet);
-						// 	}
-						// }
-						// else{
-						// 	this.numSets++;
-						// 	this.sets.push(tempSet);
-						// }
-						// console.log(this.river[i],this.river[j],this.river[k]);
 						this.numSets++;
-
 					}
 				}
 			}
 		}
-		this.numSets /=6; // weird but do to out of order sets this needs to be done
+		this.numSets /=6.0; // weird but do to out of order sets this needs to be done
 		if(this.numSets === 0)location.reload();
 		document.getElementById("setsArea").innerHTML = "<h1>Total Sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
 	}
 
+	newSetFound(id1,id2,id3){
+		let tempSet = new Set(id1,id2,id3);
+		console.log(tempSet);
+		if(this.solvedSets.length>0){
+			for(let i=0; i<this.solvedSets.length; i++){
+				if(tempSet.idArr[0] == this.solvedSets[i].idArr[0] && tempSet.idArr[1] == this.solvedSets[i].idArr[1] && tempSet.idArr[2] == this.solvedSets[i].idArr[2]){
+					return false;
+				}
+			}
+		}
+		console.log("new set found");
+		return true;
+	}
 
 	addEventListener(domEvent, functionRef, bubbles=false){
 		window.addEventListener(domEvent, functionRef.bind(this), bubbles);
