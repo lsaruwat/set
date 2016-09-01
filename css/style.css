@@ -60,11 +60,11 @@ svg{
 }
 
 .set-card.red{
-	border: solid 2px red;
+	border: solid 3px #F44336;
 }
 
 .set-card.green{
-	border: solid 2px green;
+	border: solid 3px #4CAF50;
 }
 
 @media only screen and (max-width: 1813px) {
