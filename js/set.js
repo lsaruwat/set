@@ -116,26 +116,42 @@ class SetGame{
 	}
 
 	checkCards(){
+		let color = "";
 		this.selected = [];
 		for(let i=0; i<this.river.length; i++){
 			if(this.river[i].chosen && this.selected.length < 3)this.selected.push(this.river[i]);
 		}
-		if(this.selected.length === 3 && this.isSet(this.selected[0],this.selected[1],this.selected[2])){
-			if(this.newSetFound(this.selected[0].id,this.selected[1].id,this.selected[2].id)){
-				this.setsFound++;
-				this.solvedSets.push( new Set(this.selected[0].id,this.selected[1].id,this.selected[2].id) );
-				document.getElementById("messageArea").innerHTML = "Set Found!";
-				document.getElementById("setsArea").innerHTML = "<h1>Total sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
+		console.log(this.selected);
+		if(this.selected.length === 3){
+			if(this.isSet(this.selected[0],this.selected[1],this.selected[2])){
+
+				if(this.newSetFound(this.selected[0].id,this.selected[1].id,this.selected[2].id)){
+					this.setsFound++;
+					this.solvedSets.push( new Set(this.selected[0].id,this.selected[1].id,this.selected[2].id) );
+					document.getElementById("messageArea").innerHTML = "Set Found!";
+					document.getElementById("setsArea").innerHTML = "<h1>Total sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
+					color = "green";
+				}
+				else{
+					document.getElementById("messageArea").innerHTML = "Already Found that set!";
+				}
+
+				if(this.numSets <= this.setsFound){
+					location.reload();
+				}
 			}
 			else{
-				document.getElementById("messageArea").innerHTML = "Already Found that set!";
+				document.getElementById("messageArea").innerHTML = "Not a set";
+				color = "red";
 			}
-
-			if(this.numSets <= this.setsFound){
-				location.reload();
+			
+			let selected = document.querySelectorAll(".set-card.selected");
+			for (let i=0; i<selected.length; i++){
+					selected[i].className+=" " + color;
 			}
+			window.setTimeout(this.clearSelected.bind(this),500);
+			
 		}
-		else if(this.selected.length === 3) document.getElementById("messageArea").innerHTML = "Not a set";
 
 	}
 
@@ -182,6 +198,18 @@ class SetGame{
 		}
 		console.log("new set found");
 		return true;
+	}
+
+	clearSelected(){
+		let selected = document.querySelectorAll(".set-card.selected");
+		for (let i=0; i<selected.length; i++){
+			selected[i].className="set-card";
+		}
+		console.log(this.river.length);
+		for(let i=0; i<this.river.length; i++){
+			if(this.river[i].chosen)this.river[i].chosen=false;
+		}
+
 	}
 
 	addEventListener(domEvent, functionRef, bubbles=false){

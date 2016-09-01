@@ -37,6 +37,14 @@ svg{
 	margin: 0px auto;
 }
 
+.set-card.red{
+	border: solid 2px red;
+}
+
+.set-card.green{
+	border: solid 2px green;
+}
+
 @media only screen and (max-width: 1813px) {
 	.shape{
 		font-size: 140px;
