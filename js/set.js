@@ -8,7 +8,9 @@ class Set{
 			return a-b;
 		});
 	}
+
 }
+
 class Card{
   
   constructor(color,shape,fill,count,id){
@@ -49,6 +51,7 @@ class DomCard extends Card{
 	addEventListener(domEvent, functionRef, bubbles=false){
 		this.element.addEventListener(domEvent, functionRef.bind(this), bubbles);
 	}
+
 }
 
 class Deck{
@@ -89,8 +92,8 @@ class Deck{
 		}
 		this.cards = temp.slice();
 	}
-}
 
+}
 
 class SetGame{
 
@@ -137,9 +140,6 @@ class SetGame{
 					document.getElementById("messageArea").innerHTML = "Already Found that set!";
 				}
 
-				if(this.numSets <= this.setsFound){
-					location.reload();
-				}
 			}
 			else{
 				document.getElementById("messageArea").innerHTML = "Not a set";
@@ -209,6 +209,10 @@ class SetGame{
 		console.log(this.river.length);
 		for(let i=0; i<this.river.length; i++){
 			if(this.river[i].chosen)this.river[i].chosen=false;
+		}
+
+		if(this.numSets <= this.setsFound){
+			location.reload();
 		}
 
 	}
