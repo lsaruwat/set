@@ -6,6 +6,21 @@ body{
 svg{
 	fill: currentColor;
 }
+
+#river{
+	width: 50%;
+	display: inline-block;
+
+}
+
+#foundArea{
+	width: 18%;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+
+}
+
 .set-card{
 	border: solid 2px #333;
 	display: inline-block;
@@ -16,18 +31,25 @@ svg{
 	height: 200px;
 }
 
+#foundArea .set-card{
+	margin-bottom: 5px;
+	height: 50px;
+	width: 31%;
+}
+
+#foundArea .set-card .shape{
+	font-size: 50px;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0px auto;
+}
+
 .set-card.selected{
 	border: solid 3px #1E90FF;
 }
 
 .set-card p{
 	margin-top: 5px;
-}
-
-#river{
-	width: 50%;
-	display: inline-block;
-
 }
 
 .shape{

@@ -130,6 +130,7 @@ class SetGame{
 					this.solvedSets.push( new Set(this.selected[0].id,this.selected[1].id,this.selected[2].id) );
 					document.getElementById("messageArea").innerHTML = "Set Found!";
 					document.getElementById("setsArea").innerHTML = "<h1>Total sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
+					this.updateFoundArea();
 					color = "green";
 				}
 				else{
@@ -210,6 +211,14 @@ class SetGame{
 			if(this.river[i].chosen)this.river[i].chosen=false;
 		}
 
+	}
+
+	updateFoundArea(){
+		let foundArea = document.getElementById("foundArea");
+		for(let i=0; i<this.selected.length; i++){
+		let copy = this.selected[i].element.cloneNode(true);
+		foundArea.appendChild(copy);
+		}
 	}
 
 	addEventListener(domEvent, functionRef, bubbles=false){
