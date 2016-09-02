@@ -5,6 +5,7 @@
 <div id="messageArea"></div>
 <div id="setsArea"></div>
 <div id="foundArea"></div>
+<div id="clock"></div>
 <script type="text/javascript" src="js/set.js"></script>
 <script type="text/javascript">
 window.addEventListener("load",main);

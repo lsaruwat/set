@@ -105,7 +105,14 @@ class SetGame{
 		this.setsFound = 0;
 		this.solvedSets = [];
 		this.sets = [];
+		this.time = 0;
+		window.setInterval(this.updateClock.bind(this),1000);
 		this.addEventListener("click",this.checkCards);
+	}
+
+	updateClock(){
+		this.time++;
+		document.getElementById("clock").innerHTML="<h2>Time: " + this.time + "s</h2>";
 	}
 
 	populateDom(){

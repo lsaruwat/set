@@ -25,6 +25,14 @@ svg{
 
 }
 
+#clock{
+	width: 18%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+
+}
+
 .set-card{
 	border: solid 2px #333;
 	display: inline-block;
