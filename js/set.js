@@ -106,6 +106,9 @@ class SetGame{
 		this.solvedSets = [];
 		this.sets = [];
 		this.time = 0;
+
+		if(localStorage.getItem("score") != null)this.score = parseInt(localStorage.getItem("score"));
+		else this.score = 0;
 		window.setInterval(this.updateClock.bind(this),1000);
 		this.addEventListener("click",this.checkCards);
 	}
@@ -113,6 +116,10 @@ class SetGame{
 	updateClock(){
 		this.time++;
 		document.getElementById("clock").innerHTML="<h2>Time: " + this.time + "s</h2>";
+	}
+
+	updateScore(){
+		document.getElementById("score").innerHTML="<h2>Score: " + this.score + "</h2>";
 	}
 
 	populateDom(){
@@ -123,6 +130,7 @@ class SetGame{
 			document.getElementById("river").appendChild(this.river[i].element);
 		}
 		this.findAllSets();
+		this.updateScore();
 	}
 
 	checkCards(){
@@ -142,6 +150,9 @@ class SetGame{
 					document.getElementById("setsArea").innerHTML = "<h1>Total sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
 					this.updateFoundArea();
 					color = "green";
+					this.score+=(100)/this.time;
+					localStorage.setItem("score",this.score);
+
 				}
 				else{
 					document.getElementById("messageArea").innerHTML = "Already Found that set!";
