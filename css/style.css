@@ -33,6 +33,10 @@ svg{
 
 }
 
+#messageArea{
+	color: #1E90FF;
+}
+
 .set-card{
 	border: solid 2px #333;
 	display: inline-block;
@@ -131,7 +135,7 @@ svg{
 	}
 
 	#foundArea .shape{
-		font-size: 60%;
+		font-size: 50%;
 	}
 
 	#clock{

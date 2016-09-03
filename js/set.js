@@ -146,22 +146,22 @@ class SetGame{
 				if(this.newSetFound(this.selected[0].id,this.selected[1].id,this.selected[2].id)){
 					this.setsFound++;
 					this.solvedSets.push( new Set(this.selected[0].id,this.selected[1].id,this.selected[2].id) );
-					document.getElementById("messageArea").innerHTML = "Set Found!";
+					color = "green";
+					document.getElementById("messageArea").innerHTML = "<h1 style='color: " + color + ";'>Set Found!</h1>";
 					document.getElementById("setsArea").innerHTML = "<h1>Total sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
 					this.updateFoundArea();
-					color = "green";
 					this.score+=(100)/this.time;
 					localStorage.setItem("score",this.score);
 
 				}
 				else{
-					document.getElementById("messageArea").innerHTML = "Already Found that set!";
+					document.getElementById("messageArea").innerHTML = "<h1>Already Found that set!</h1>";
 				}
 
 			}
 			else{
-				document.getElementById("messageArea").innerHTML = "Not a set";
 				color = "red";
+				document.getElementById("messageArea").innerHTML = "<h1> style='color: " + color + ";'Not a set";
 			}
 			
 			let selected = document.querySelectorAll(".set-card.selected");
