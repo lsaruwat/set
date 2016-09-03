@@ -120,17 +120,33 @@ svg{
 	}
 
 	#foundArea{
+		position: fixed;
 		bottom: 0px;
+		top: auto;
 	}
 
 	#clock{
+		position: fixed;
 		bottom: 0px;
+		top: auto;
 	}
 }
 
 @media only screen and (max-width: 685px){
 	.shape{
 		font-size: 90px;
+	}
+
+	#foundArea{
+		position: fixed;
+		bottom: 0px;
+		top: auto;
+	}
+
+	#clock{
+		position: fixed;
+		bottom: 0px;
+		top: auto;
 	}
 }
 
