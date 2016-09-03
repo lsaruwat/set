@@ -118,6 +118,14 @@ svg{
 	#river{
 		width: 100%;
 	}
+
+	#foundArea{
+		bottom: 0px;
+	}
+
+	#clock{
+		bottom: 0px;
+	}
 }
 
 @media only screen and (max-width: 685px){

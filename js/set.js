@@ -168,7 +168,7 @@ class SetGame{
 			for (let i=0; i<selected.length; i++){
 					selected[i].className+=" " + color;
 			}
-			window.setTimeout(this.clearSelected.bind(this),500);
+			window.setTimeout(this.clearSelected.bind(this),700);
 			
 		}
 
