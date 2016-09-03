@@ -39,6 +39,7 @@ svg{
 
 .set-card{
 	border: solid 2px #333;
+	border-radius: 5%;
 	display: inline-block;
 	width: 31.5%;
 	margin-left: 1%;
@@ -70,7 +71,7 @@ svg{
 }
 
 .shape{
-	font-size: 150px;
+	font-size: 140px;
 	font-weight: bold;
 	display: inline-block;
 	margin: 0px auto;
@@ -90,7 +91,7 @@ svg{
 
 @media only screen and (max-width: 1813px) {
 	.shape{
-		font-size: 140px;
+		font-size: 135px;
 	}
 }
 
