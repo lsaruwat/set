@@ -161,7 +161,7 @@ class SetGame{
 			}
 			else{
 				color = "red";
-				document.getElementById("messageArea").innerHTML = "<h1> style='color: " + color + ";'Not a set";
+				document.getElementById("messageArea").innerHTML = "<h1 style='color: " + color + ";'> Not a set</h1>";
 			}
 			
 			let selected = document.querySelectorAll(".set-card.selected");
