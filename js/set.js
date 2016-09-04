@@ -151,6 +151,7 @@ class SetGame{
 					document.getElementById("setsArea").innerHTML = "<h1>Total sets: " + this.numSets + "</h1><h1>Sets Found: " + this.setsFound + "</h1>";
 					this.updateFoundArea();
 					this.score+=(100)/this.time;
+					this.time = 0;
 					localStorage.setItem("score",this.score);
 
 				}
