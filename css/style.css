@@ -89,27 +89,27 @@ svg{
 	border: solid 3px #4CAF50;
 }
 
-@media only screen and (max-width: 1813px) {
+@media only screen and (max-width: 1815px) {
 	.shape{
-		font-size: 135px;
+		font-size: 88px;
 	}
 }
 
 @media only screen and (max-width: 1694px) {
 	.shape{
-		font-size: 130px;
+		font-size: 86px;
 	}
 }
 
 @media only screen and (max-width: 1650px) {
 	.shape{
-		font-size: 120px;
+		font-size: 76px;
 	}
 }
 
 @media only screen and (max-width: 1456px) {
 	.shape{
-		font-size: 110px;
+		font-size: 73px;
 	}
 }
 
